@@ -95,7 +95,7 @@ using namespace v8;
         RETURN_EXCEPT("Argument should be a buffer object."); \
  \
     char * input = Buffer::Data(target); \
-    char output[32]; \
+    char output[output_len]; \
  \
     uint32_t input_len = Buffer::Length(target); \
  \

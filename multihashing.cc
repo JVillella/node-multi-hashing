@@ -6,6 +6,7 @@
 extern "C" {
     #include "bcrypt.h"
     #include "blake.h"
+    #include "blake2.h"
     #include "c11.h"
     #include "cryptonight.h"
     #include "cryptonight_fast.h"
@@ -106,6 +107,8 @@ using namespace v8;
  DECLARE_CALLBACK(bcrypt, bcrypt_hash, 32);
  DECLARE_CALLBACK(blake256, blake256_hash, 32);
  DECLARE_CALLBACK(blake512, blake512_hash, 64);
+ DECLARE_CALLBACK(blake2s, blake2s_hash, 32);
+ DECLARE_CALLBACK(blake2b, blake2b_hash, 32);
  DECLARE_CALLBACK(c11, c11_hash, 32);
  DECLARE_CALLBACK(fresh, fresh_hash, 32);
  DECLARE_CALLBACK(fugue, fugue_hash, 32);
@@ -337,6 +340,8 @@ DECLARE_INIT(init) {
     NODE_SET_METHOD(exports, "bcrypt", bcrypt);
     NODE_SET_METHOD(exports, "blake256", blake256);
     NODE_SET_METHOD(exports, "blake512", blake512);
+    NODE_SET_METHOD(exports, "blake2s", blake2s);
+    NODE_SET_METHOD(exports, "blake2b", blake2b);
     NODE_SET_METHOD(exports, "boolberry", boolberry);
     NODE_SET_METHOD(exports, "c11", c11);
     NODE_SET_METHOD(exports, "cryptonight", cryptonight);

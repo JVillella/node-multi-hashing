@@ -104,7 +104,8 @@ using namespace v8;
 }
 
  DECLARE_CALLBACK(bcrypt, bcrypt_hash, 32);
- DECLARE_CALLBACK(blake, blake_hash, 32);
+ DECLARE_CALLBACK(blake256, blake256_hash, 32);
+ DECLARE_CALLBACK(blake512, blake512_hash, 64);
  DECLARE_CALLBACK(c11, c11_hash, 32);
  DECLARE_CALLBACK(fresh, fresh_hash, 32);
  DECLARE_CALLBACK(fugue, fugue_hash, 32);
@@ -334,11 +335,12 @@ DECLARE_FUNC(boolberry) {
 
 DECLARE_INIT(init) {
     NODE_SET_METHOD(exports, "bcrypt", bcrypt);
-    NODE_SET_METHOD(exports, "blake", blake);
+    NODE_SET_METHOD(exports, "blake256", blake256);
+    NODE_SET_METHOD(exports, "blake512", blake512);
     NODE_SET_METHOD(exports, "boolberry", boolberry);
     NODE_SET_METHOD(exports, "c11", c11);
     NODE_SET_METHOD(exports, "cryptonight", cryptonight);
-	NODE_SET_METHOD(exports, "cryptonightfast", cryptonightfast);
+    NODE_SET_METHOD(exports, "cryptonightfast", cryptonightfast);
     NODE_SET_METHOD(exports, "fresh", fresh);
     NODE_SET_METHOD(exports, "fugue", fugue);
     NODE_SET_METHOD(exports, "groestl", groestl);

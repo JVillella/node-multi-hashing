@@ -145,7 +145,7 @@ union cn_slow_hash_state {
 #pragma pack(pop)
 
 static void do_blake_hash(const void* input, size_t len, char* output) {
-    blake256_hash((uint8_t*)output, input, len);
+    blake256_calc_hash((uint8_t*)output, input, len);
 }
 
 void do_groestl_hash(const void* input, size_t len, char* output) {

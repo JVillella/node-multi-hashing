@@ -7,7 +7,7 @@
 #include "sha3/sph_blake.h"
 
 
-void blake_hash(const char* input, char* output, uint32_t len)
+void blake256_hash(const char* input, char* output, uint32_t len)
 {
     sph_blake256_context ctx_blake;
     sph_blake256_init(&ctx_blake);
@@ -15,3 +15,10 @@ void blake_hash(const char* input, char* output, uint32_t len)
     sph_blake256_close(&ctx_blake, output);
 }
 
+void blake512_hash(const char* input, char* output, uint32_t len)
+{
+    sph_blake512_context ctx_blake;
+    sph_blake512_init(&ctx_blake);
+    sph_blake512(&ctx_blake, input, len);
+    sph_blake512_close(&ctx_blake, output);
+}
